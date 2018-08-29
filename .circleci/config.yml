@@ -57,8 +57,8 @@ jobs:
     - run:
         name: Setup domain a parameters files
         command: |
-          FIRST_DOMAIN_HOSTNAME=$CIRCLE_BRANCH.$DEVELOPMENT_SERVER_DOMAIN:$NGINX_INGRESS_CONTROLLER_HOST_PORT
-          SECOND_DOMAIN_HOSTNAME=2.$CIRCLE_BRANCH.$DEVELOPMENT_SERVER_DOMAIN:$NGINX_INGRESS_CONTROLLER_HOST_PORT
+          FIRST_DOMAIN_HOSTNAME=$CIRCLE_BRANCH.$DEVELOPMENT_SERVER_DOMAIN
+          SECOND_DOMAIN_HOSTNAME=2.$CIRCLE_BRANCH.$DEVELOPMENT_SERVER_DOMAIN
           yq write --inplace domains_urls.yml domains_urls[0].url http://$FIRST_DOMAIN_HOSTNAME
           yq write --inplace domains_urls.yml domains_urls[1].url http://$SECOND_DOMAIN_HOSTNAME
         working_directory: project-base  
